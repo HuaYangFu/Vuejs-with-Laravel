@@ -1,38 +1,25 @@
-@extends('layouts.app')
-
-@section('content')
-  <div class="container">
-    <p><a class="btn btn-primary" href="/CreateView">create</a></p>
-    <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>edit</th>
-        <th>delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach($Users as $User)
-      <tr>
-        <td>{{$User->id}}</td>
-        <td>{{$User->name}}</td>
-        <td><a class="btn btn-warning" href="/Edit/{{$User->id}}">edit</a></td>
-        <td><a class="btn btn-danger" href="/User/{{$User->id}}">delete</a></td>
-      </tr>
-      @endforeach
-    </tbody>
-  </table>
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" >
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.js"></script>
+</head>
+<body>
   
-  <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="{!! $Users->previousPageUrl() !!}">Previous</a></li>
-        @for ($i = 1 ; $i < $Users->count() -1 ; $i++)
-            <li class="page-item"><a class="page-link" href="{!! $Users->url($i) !!}">{{ $i }}</a></li>
-        @endfor
-        <li class="page-item"><a class="page-link" href="{!! $Users->nextPageUrl() !!}">Next</a></li>
-      </ul>
-  </nav>
-  
+  <div id="head">
+    <myheader></myheader>
   </div>
-@endsection
+
+  <div id="app"></div>
+  
+  <div id="foot">
+    <myfooter></myfooter>
+  </div>
+
+  <script src="{{ asset('js/vue.js') }}"></script>
+  <script src="{{ asset('js/vue-router.js') }}"></script>
+  <script src="https://unpkg.com/http-vue-loader"></script>
+  <script src="{{ asset('js/index.js') }}"></script>
+</body>
+</html>
