@@ -13,6 +13,11 @@ class ApiTestController extends Controller{
         $Users = DB::table('users')->paginate(5);
         return $Users;
     }
+
+    public function find($id){
+        $User = User::find($id);
+        return $User;
+    }
     
     public function delete($id){
         if (!$id) {

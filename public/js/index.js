@@ -7,23 +7,11 @@ var router = new VueRouter({
   ],
 });
 
-new Vue({
+var vm = new Vue({
 	el: '#app',
 	router:router,
-	template: '<router-view></router-view>',
-});
-
-new Vue({
-	el: '#foot',
 	components: {
-      'myfooter'   : httpVueLoader('js/components/footer.vue'),
+		'myfooter'   : httpVueLoader('js/components/footer.vue'),
+	  'myheader'   : httpVueLoader('js/components/header.vue')
 	}
 });
-
-new Vue({
-	el: '#head',
-	components: {
-	  'myheader'   : httpVueLoader('js/components/header.vue'),
-	}
-});
-

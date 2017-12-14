@@ -7,13 +7,9 @@
 </head>
 <body>
   
-  <div id="head">
+  <div id="app">
     <myheader></myheader>
-  </div>
-
-  <div id="app"></div>
-  
-  <div id="foot">
+    <router-view></router-view>
     <myfooter></myfooter>
   </div>
 

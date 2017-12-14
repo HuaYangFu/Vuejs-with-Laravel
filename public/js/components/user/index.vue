@@ -34,6 +34,7 @@
 var users = [
   {id:'',name:''},
 ];
+
 module.exports = {
   data () {
     return {
@@ -52,8 +53,10 @@ module.exports = {
     },
     deleteUser: function(user) {
       axios.delete('api/users/'+user.id).then(response => {
-      })
-      this.$router.push('/');
+        this.fetchUsers();
+      }).catch(error => {
+          console.log(error)
+      });
     },
   }
 }
